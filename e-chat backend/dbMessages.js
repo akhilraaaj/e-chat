@@ -7,4 +7,5 @@ const echatSchema = mongoose.Schema({
     received: Boolean,
 });
 
-export default mongoose.model('messageContent', echatSchema)
+//collection
+export default mongoose.model('messagecontents', echatSchema)
