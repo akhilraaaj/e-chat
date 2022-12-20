@@ -2,8 +2,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import Messages from './dbMessages.js';
-import Pusher from 'pusher';
-import cors from 'cors';
+import Pusher from 'pusher'
+import cors from 'cors'
 
 //app config
 const app = express()
@@ -23,11 +23,7 @@ app.use(cors());
 //DB config
 const connection_url ='mongodb+srv://echat:1yjWnlKAznABab7j@cluster0.d1vokvf.mongodb.net/?retryWrites=true&w=majority';
 
-mongoose.connect(connection_url, {
-    // useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+mongoose.connect(connection_url);
 
 const db = mongoose.connection;
 
@@ -49,31 +45,30 @@ db.once("open", () => {
             name: messageDetails.name,
             message: messageDetails.message,
             timstamp: messageDetails.timestamp,
-            received: messageDetails.received,
+            received: messageDetails.received
         });
     } 
     else
     {
         console.log('Error triggering Pusher')
     }  
-    });
-});
+    })
+})
     
     
-
-
 //api routes
-app.get('/', (req,res)=>res.status(200).send('hello world'))
+app.get('/', (req,res)=>res.status(200).send('hello world'));
+
 app.get('/messages/sync', (req, res) => {
     Messages.find((err, data) => {
         if(err) {
-            res.status(500).send(err)
+            res.status(500).send(err);
         } 
         else {
-            res.status(200).send(data)
+            res.status(200).send(data);
         }
-    })
-})
+    });
+});
 
 app.post('/messages/new', (req,res) => {
     const dbMessage = req.body;
@@ -87,5 +82,4 @@ app.post('/messages/new', (req,res) => {
     })
 })
 //listen
-app.listen(port, () => console.log('Listening on localhost:',port
-));
+app.listen(port, () => console.log('Listening on localhost:',{port}));
