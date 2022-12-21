@@ -5,9 +5,9 @@ import {Avatar} from "@mui/material";
 function SidebarChat() {
   return (
     <div className='sidebarChat'>
-      <Avatar />
+      <Avatar src="https://img.collegepravesh.com/2015/12/Vellore-Institute-of-Technology-Logo.png"/>
       <div className="sidebarChat__info">
-        <h2>Room Name</h2>
+        <h2>VIT Group Chat</h2>
         <p>This is the last message</p>
       </div>
     </div>

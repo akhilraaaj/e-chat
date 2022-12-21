@@ -31,6 +31,11 @@
     padding: 10px;
 }
 
+input{
+    border: none;
+    outline: none;
+}
+
 .sidebar__searchContainer{
     display: flex;
     align-items: center;
@@ -38,6 +43,7 @@
     width: 100%;
     height: 35px;
     border-radius: 20px;
+    outline: none;
 }
 
 .sidebar__searchContiner > .MuiSvgIcon-root {
